@@ -3,7 +3,7 @@
 SplitManpage is a plugin for opening man pages inside another Vim window.
 
 In Vim, the `K` key looks up the keyword under the cursor. It does so using the value
-of the 'keywordprg' option, which defaults to "man", or "man -s" if a count is specified.
+of the `keywordprg` option, which defaults to "man", or to "man -s" if a count is specified.
 Unfortunately, you are temporarily taken out of vim into a pager program, making the
 whole experience rather disruptive.
 
@@ -33,30 +33,30 @@ The default set of key mappings are as follows
 
 As with Vim's `K` (see `:help K`), you can also apply a count before calling any of these mappings.
 The appropriate man page section will be brought up when doing the lookup. For example, `2<Leader>kk`
-will look up the keyword under the cursor in section 2 of the man pages.
+will take the keyword under the cursor, look it up in section 2 of the man pages, and place the
+resulting man page inside a split window above the current window.
 
 You can also use the commands `:Man <word>` and `:ManS <section> <word>`, but they will open the
 desired man page in the current window. For example, to bring up the `curl(1)` man page you can run
 `:Man curl`, and to find `printf(3)` you can run `:ManS 3 printf`.
 
+To get rid of the man page you can simply delete its buffer with the command `:bd`.
+
 ## Options
 
-To override the default prefix `<Leader>k` you can use this option
+To override the default prefix `<Leader>k`, you can place this line in your `~/.vimrc` and use
+any other key sequence you want
 
-    ```
     let g:split_manpage_prefix = '<Leader>k'
-    ```
 
-You can also assign an alternate key sequence to open the man page inside the current window.
-By default, that sequence is `<Leader>K`. No prefix is applied to this mapping.
+You can also assign an alternate key sequence to open the man page inside the current window
+instead. By default, this sequence is `<Leader>K`. No prefix is applied to this mapping.
 
-    ```
     let g:split_manpage_samewindow = '<Leader>K'
-    ```
 
-By default, the `K` key is disabled (mapped to `<nop>`). You can turn that off with
+By default, the `K` key is disabled in normal mode, but it can still be called in visual mode
+via something like `vawK`. If you'd prefer to prevent SplitManpage from turning it off, you
+can use the option
 
-    ```
     let g:split_manpage_disable_K = 0
-    ```
 
