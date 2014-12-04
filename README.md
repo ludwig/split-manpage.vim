@@ -46,7 +46,7 @@ desired man page in the current window. For example, to bring up the `curl(1)` m
 ## Options
 
 To override the default prefix sequence `<Leader>k`, you can place this line in your `~/.vimrc`
-and use any other key sequence you want
+and use any other key sequence you want:
 
     ```vim
     let g:split_manpage_prefix = '<Leader>k'
@@ -54,7 +54,7 @@ and use any other key sequence you want
 
 You can also assign an alternate key sequence to open the man page inside the current window
 instead. By default, this sequence is `<Leader>K`. No other prefix sequence is necessary to use
-this mapping.
+this mapping:
 
     ```vim
     let g:split_manpage_samewindow = '<Leader>K'
@@ -62,7 +62,7 @@ this mapping.
 
 Because it's easy to hit it by accident, the key `K` has been disabled in normal mode. Note that you
 can still use it in visual mode via something like `vawK`. If you'd prefer to prevent this plugin
-from turning off `K`, you can use the option
+from turning off `K`, you can use the option:
 
     ```vim
     " Whether to disable the K key. Set this option to 0 to leave K alone. (default is 1)
