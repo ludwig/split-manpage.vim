@@ -1,28 +1,29 @@
 ## About
 
-SplitManpage is a plugin for opening man pages inside another Vim window.
+`split-manpage.vim` is a plugin for opening man pages inside another Vim window.
 
 In Vim, the `K` key looks up the keyword under the cursor. It does so using the value
-of the `keywordprg` option, which defaults to "man", or to "man -s" if a count is specified.
+of the `keywordprg` option, which defaults to "man" or to "man -s" if a count is specified.
 Unfortunately, you are temporarily taken out of vim into a pager program, making the
 whole experience rather disruptive.
 
 This plugin fixes that behavior by opening the desired man page inside of Vim itself.
 The contents of the man page are placed in a temporary buffer on a split window.
+Moreover, because that temporary buffer is hidden and not associated with any file,
+it's easy to get rid of it.
 
 ## Installation
 
 Use your favorite Vim plugin manager to install this plugin. For example, with NeoBundle
 you can place this line in your `~/.vimrc` file
 
-    ```
     NeoBundle 'ludwig/split-manpage.vim'
-    ```
 
 ## Usage
 
-To open the man page for the keyword under the cursor, press the prefix sequence (`<Leader>k` by default)
-followed by a window cursor motion (one of `hjkl`).
+To open the man page for the keyword under the cursor, press a prefix sequence (`<Leader>k` by default)
+followed by a cursor movement key (one of `hjkl`). The appropriate split window will be created
+with the contents of the desired man page.
 
 The default set of key mappings are as follows
 
@@ -31,10 +32,10 @@ The default set of key mappings are as follows
 - `<Leader>kh` - opens the man page on a vertical split window to the left of the current window.
 - `<Leader>kl` - opens the man page on a vertical split window to the right of the current window.
 
-As with Vim's `K` (see `:help K`), you can also apply a count before calling any of these mappings.
-The appropriate man page section will be brought up when doing the lookup. For example, `2<Leader>kk`
-will take the keyword under the cursor, look it up in section 2 of the man pages, and place the
-resulting man page inside a split window above the current window.
+As with Vim's `K` (refer to `:help K` for more), you can also apply a count before calling any of
+these mappings. The appropriate man page section will be brought up when doing the lookup. For example,
+`2<Leader>kk` will take the keyword under the cursor, look it up in section 2 of the man pages,
+and place the resulting man page inside a split window above the current window.
 
 You can also use the commands `:Man <word>` and `:ManS <section> <word>`, but they will open the
 desired man page in the current window. For example, to bring up the `curl(1)` man page you can run
