@@ -1,0 +1,2 @@
+Stuff to do
+- Merge the :Man and :ManS commands (use number of args to figure out which internal function to call)
