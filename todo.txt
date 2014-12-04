@@ -1,3 +1,4 @@
 Stuff to do
-- Merge the :Man and :ManS commands (use number of args to figure out which internal function to call)
 - Add vim help file 'doc/split-manpage.txt'
+- Merge the :Man and :ManS commands (use number of args to figure out which internal function to call)
+- Don't open split window if no man page is found (instead, show error message via :echoerr)
